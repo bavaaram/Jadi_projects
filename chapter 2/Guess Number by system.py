@@ -28,3 +28,6 @@ while num != guess:
     if flag == "m":
         print("The system won! ")
         break
+
+print("The list of guessed numbers by system:\n")
+print(guess)
