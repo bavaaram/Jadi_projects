@@ -1,6 +1,6 @@
-n = 10
+n = 1000
 nums = list()
-for i in range(n + 1)
+for i in range(n):
     if (i % 3 == 0) or (i % 5 == 0):
         nums.append(i)
     else:
