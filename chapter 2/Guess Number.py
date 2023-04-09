@@ -37,7 +37,8 @@ while 1:
     print("************************************************************\n")
     print("%s Guesses remaining" % charge)
     guess = num_check(guess)        #check the guess for its healthly before enter to the conditions via num_check function.
-    while 1:
+
+    while int(guess) != num:        #Until the guess and the number not equal to each other, this while loop will run. if num & guess are equal, we will beark this while loop.
         if charge == 1:     #If chance was reached 1 and eventually mistake in guessing, the player chances ran out and he/she lose the game.
             if num != int(guess):
                 print("You Lost! ")
@@ -59,10 +60,8 @@ while 1:
             print("%s Guesses remaining" % charge)
             guess = num_check(guess)
             continue
+    print("Congrats, you win! ")        #A condition for correct guessing mode (winning in the game).
 
-        if num == int(guess):       #A condition for correct guessing mode (winning in the game).
-            print("Congrats, you win! ")
-            break
     print("\n*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n") 
     ans = input("Play again? Y/n ")
     while 1:        #A loop for check "ans" input healthly to avoid pass characters instead of Y, y and N, n through the conditional statements.
