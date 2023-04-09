@@ -29,14 +29,16 @@ while 1:
             else:
                 print("The entered number is out of range, please try again.")
                 continue
+        return a
 
     num = random.randint(0, 100)
+    print("The generated number is %s" % str(num))
     guess = 0
     print("The number is generated.")
     print("Remember, you have 10 chances to guess :)")
     print("************************************************************\n")
     print("%s Guesses remaining" % charge)
-    num_check(guess)
+    guess = num_check(guess)
     while 1:
         if charge == 1:
             if num != int(guess):
@@ -49,7 +51,7 @@ while 1:
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
             print("The guessed number in greater.")
             print("%s Guesses remaining" % charge)
-            num_check(guess)
+            guess = num_check(guess)
             continue
 
         if (int(guess) < num) and charge > 1:
@@ -57,13 +59,26 @@ while 1:
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
             print("The guessed number in smaller.")
             print("%s Guesses remaining" % charge)
-            num_check(guess)
+            guess = num_check(guess)
             continue
 
         if num == int(guess):
             print("Congrats, you win! ")
             break
+    print("\n*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n") 
+    ans = input("Play again? Y/n ")
+    while 1:
+        if ans == "Y" or ans == "y" or ans == "N" or ans == "n":
+            break
+        else:
+            print("Invalid Input, please try again.")
+            ans = input(("ready for start? Y/n "))
+            continue
 
-
-    break
-
+    if ans == "Y" or ans == "y":
+        print("Restarting the program...")
+        print("\n_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n")
+        continue
+    elif ans == "N" or ans == "n":
+        print("Exiting the program...")
+        break
