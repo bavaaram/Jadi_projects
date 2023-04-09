@@ -18,7 +18,7 @@ while 1:
         print("Exiting the program...")
         break
 
-    def num_check(a):
+    def num_check(a):       #A function for number healthly check and avoid to pass string characters & out of range numbers.
         while 1:
             a = input("Enter your guess: ")
             if not a.isnumeric():
@@ -32,21 +32,19 @@ while 1:
         return a
 
     num = random.randint(0, 100)
-    print("The generated number is %s" % str(num))
     guess = 0
     print("The number is generated.")
-    print("Remember, you have 10 chances to guess :)")
     print("************************************************************\n")
     print("%s Guesses remaining" % charge)
-    guess = num_check(guess)
+    guess = num_check(guess)        #check the guess for its healthly before enter to the conditions via num_check function.
     while 1:
-        if charge == 1:
+        if charge == 1:     #If chance was reached 1 and eventually mistake in guessing, the player chances ran out and he/she lose the game.
             if num != int(guess):
                 print("You Lost! ")
                 print("The number is %s" % str(num))
                 break
 
-        if (int(guess) > num) and charge > 1:
+        if (int(guess) > num) and charge > 1:       #A condition for greater mode.
             charge -= 1
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
             print("The guessed number in greater.")
@@ -54,7 +52,7 @@ while 1:
             guess = num_check(guess)
             continue
 
-        if (int(guess) < num) and charge > 1:
+        if (int(guess) < num) and charge > 1:       #A condition for smaller mode.
             charge -= 1
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
             print("The guessed number in smaller.")
@@ -62,23 +60,23 @@ while 1:
             guess = num_check(guess)
             continue
 
-        if num == int(guess):
+        if num == int(guess):       #A condition for correct guessing mode (winning in the game).
             print("Congrats, you win! ")
             break
     print("\n*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*\n") 
     ans = input("Play again? Y/n ")
-    while 1:
-        if ans == "Y" or ans == "y" or ans == "N" or ans == "n":
+    while 1:        #A loop for check "ans" input healthly to avoid pass characters instead of Y, y and N, n through the conditional statements.
+        if ans == "Y" or ans == "y" or ans == "N" or ans == "n":        #If ans equal to Y or y or N or n, pass it through the healthly check.
             break
-        else:
+        else:       #Everything entered for "ans" instead of 4 characters listed previous comment will be denied and player must enter the "ans" again.
             print("Invalid Input, please try again.")
             ans = input(("ready for start? Y/n "))
             continue
 
-    if ans == "Y" or ans == "y":
+    if ans == "Y" or ans == "y":        #If player enter Y or y, pass him/her through the base loop (first line while 1:) ans continue.
         print("Restarting the program...")
         print("\n_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n")
         continue
-    elif ans == "N" or ans == "n":
+    elif ans == "N" or ans == "n":      #If player enter N or n, exiting the whole program and break the base loop (first line while 1:).
         print("Exiting the program...")
         break
